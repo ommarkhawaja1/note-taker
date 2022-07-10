@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { createNewNote, findById } = require('../lib/notes');
+const { createNewNote, findById, deleteNote } = require('../lib/notes');
 const { notesArray } = require('../db/db.json');
 
 test('Creates a notes object', () => {
@@ -42,3 +42,11 @@ test('finds note by id', () => {
     const result = findById('3', startingNotes);
     expect(result.title).toBe('Note 3');
 });
+
+test('deletes note object', () => {
+    const testArray = notesArray;
+    const testArrayLength = testArray.length;
+    const endingArrayLength = deleteNote('1', testArray);
+
+    expect(endingArrayLength).toEqual(testArrayLength - 1);
+})
