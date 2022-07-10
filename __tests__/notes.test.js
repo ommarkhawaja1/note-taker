@@ -44,9 +44,29 @@ test('finds note by id', () => {
 });
 
 test('deletes note object', () => {
-    const testArray = notesArray;
+    const testArray = [
+        {
+            "title": "Test Title",
+            "text": "Test text",
+            "id": "0"
+        },
+        {
+            "title": "Note 1",
+            "text": "note 1 text",
+            "id": "1"
+        },
+        {
+            "title": "Note 2",
+            "text": "note 2 text",
+            "id": "2"
+        },
+        {
+            "title": "Note 3",
+            "text": "test note text",
+            "id": "3"
+        },
+    ];
     const testArrayLength = testArray.length;
     const endingArrayLength = deleteNote('1', testArray);
-
     expect(endingArrayLength).toEqual(testArrayLength - 1);
-})
+ })
